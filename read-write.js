@@ -8,7 +8,7 @@ fs.readFile('teste.txt', function(err, data){
         process.exit(1);
     } else {
         console.log(data+"");
-        fs.writeFile('teste.txt', 'Other text', function(err){
+        fs.writeFile('teste1.txt', 'Other text', function(err){
             /*
              * Write callback
              */
