@@ -1,5 +1,5 @@
 //get the filesystem module
-var fs = require('fs'),
+var fs = require('fs'), tree = require ("./GenericTree.js"),
   stream = fs.createReadStream("teste.txt", {
     flags: 'r',
     encoding: 'utf-8',
@@ -19,19 +19,24 @@ stream.addListener('data', function (char) {
       }*/
     }
     currentChar = reader[0];
+
     //console.info(currentChar);
+    var createTree = "";
     var s = nextToken();
-    console.info(s);
-    var s = nextToken();
-    console.info(s);
-    var s = nextToken();
-    console.info(s);
-    var s = nextToken();
-    console.info(s);
-    var s = nextToken();
-    console.info(s);
-    var s = nextToken();
-    console.info(s);
+    while(s !== ')'){
+      s = nextToken();
+      while(s !== '(' && s !== ')'){
+        console.info(s);
+
+        s = nextToken();
+
+      }  
+    }
+    
+    //console.info(s);
+    // var s = nextToken();
+    //console.info(s);
+    
     //process.stdout.write("\n");
     function nextToken() {
       if(currentChar == -1) {
@@ -73,5 +78,43 @@ stream.addListener('data', function (char) {
     function nextChar() {
       contador += 1;
       currentChar = reader[contador];
+    }
+
+    function createStructure(){
+      return 
+      {
+        category: '(TOP ',
+        subcategories: [
+          {
+            category: '(S ',
+            subcategories: [
+              {
+                category: '(NP-SBJ ',
+                subcategories: [
+                  {category:'(NNP Ms.) '},
+                  {category: '(NNP Haag)) '}
+                ]
+              },
+              {
+                category: '(VP ',
+                subcategories: [
+                  {
+                    category: '(VBZ plays) '
+                  },
+                  {
+                    category: '(NP ',
+                    subcategories: [
+                      {category: '(NNP Elianti))) '}
+                    ]
+                  }
+                ]
+              },
+              {
+                category: '(. .))) '
+              }
+            ]
+          }
+        ]
+      }
     }
 });

@@ -1,0 +1,11 @@
+{
+  "name": "node_pattern_matching",
+  "version": "0.0.0",
+  "description": "Pattern Matching using Tree Structures",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bernardo G. Filho and Thiago Cesar",
+  "license": "MIT"
+}
